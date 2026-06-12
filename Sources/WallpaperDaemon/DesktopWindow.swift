@@ -25,7 +25,9 @@ final class DesktopWindow: NSWindow {
         hasShadow = false
         ignoresMouseEvents = true // Click-through to desktop
         isReleasedWhenClosed = false
-        sharingType = .none // Don't appear in screen sharing/recording
+        // Must stay capturable: .none makes screenshots show a gray desktop (macOS 27).
+        // Screen Time invisibility comes from the bare Mach-O, not window sharing.
+        sharingType = .readOnly
         animationBehavior = .none // No animation on show/hide
 
         // Set up content view with layer backing

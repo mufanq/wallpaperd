@@ -68,12 +68,12 @@ swift build -c release
 
 ```bash
 # Install binary
-mkdir -p ~/bin
-cp .build/release/wallpaperd ~/bin/
-codesign -s - ~/bin/wallpaperd  # ad-hoc sign for Apple Silicon
+mkdir -p ~/agent/bin
+cp .build/release/wallpaperd ~/agent/bin/
+codesign -s - ~/agent/bin/wallpaperd  # ad-hoc sign for Apple Silicon
 
 # Install LaunchAgent (auto-start on login)
-sed "s|/usr/local/bin/wallpaperd|$HOME/bin/wallpaperd|" LaunchAgent/com.wallpaperd.plist \
+sed "s|/usr/local/bin/wallpaperd|$HOME/agent/bin/wallpaperd|" LaunchAgent/com.wallpaperd.plist \
     > ~/Library/LaunchAgents/com.wallpaperd.plist
 
 # Start
@@ -145,7 +145,7 @@ launchctl unload ~/Library/LaunchAgents/com.wallpaperd.plist
 # Uninstall
 launchctl unload ~/Library/LaunchAgents/com.wallpaperd.plist
 rm ~/Library/LaunchAgents/com.wallpaperd.plist
-rm ~/bin/wallpaperd
+rm ~/agent/bin/wallpaperd
 rm -rf ~/.config/wallpaperd
 ```
 
