@@ -59,7 +59,7 @@ The video plays at desktop level — above the system wallpaper, below your desk
 ### Build from source
 
 ```bash
-git clone https://github.com/WhenMelancholy/wallpaperd.git
+git clone https://github.com/mufanq/wallpaperd.git
 cd wallpaperd
 swift build -c release
 ```
